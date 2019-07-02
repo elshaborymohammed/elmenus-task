@@ -1,0 +1,94 @@
+ext {
+    /** Google Find Bug */
+    findbug = 'com.google.code.findbugs:jsr305:3.0.2'
+
+    /** Java Core */
+    javaxAnnotationsVersion = '1.0'
+    javaxInjectVersion = '1'
+    javaX = [
+            annotation: "javax.annotation:jsr250-api:$javaxAnnotationsVersion",
+            inject    : "javax.inject:javax.inject:$javaxInjectVersion",
+    ]
+
+    /** Android Compat */
+    androidXCoreVersion = '1.0.0'
+    androidXLifecycleVersion = '2.0.0'
+    constraintLayoutVersion = '1.1.2'
+    androidX = [
+            annotation      : "androidx.annotation:annotation:$androidXCoreVersion",
+            appCompat       : "androidx.appcompat:appcompat:$androidXCoreVersion",
+            ktx             : "androidx.core:core-ktx:$androidXCoreVersion",
+            recyclerView    : "androidx.recyclerview:recyclerview:$androidXCoreVersion",
+            cardView        : "androidx.cardview:cardview:$androidXCoreVersion",
+            supportV4       : "androidx.legacy:legacy-support-v4:$androidXCoreVersion",
+            mediaCompat     : "androidx.media:media:$androidXCoreVersion",
+            vector          : "androidx.vectordrawable:vectordrawable:$androidXCoreVersion",
+            animatedVector  : "androidx.vectordrawable:vectordrawable-animated:$androidXCoreVersion",
+            material        : "com.google.android.material:material:$androidXCoreVersion",
+
+            extension       : "androidx.lifecycle:lifecycle-extensions:$androidXLifecycleVersion",
+            compiler        : "androidx.lifecycle:lifecycle-compiler:$androidXLifecycleVersion",
+            viewModel       : "androidx.lifecycle:lifecycle-viewmodel:$androidXLifecycleVersion",
+            viewModelKtx    : "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidXLifecycleVersion",
+            liveData        : "androidx.lifecycle:lifecycle-livedata:$androidXLifecycleVersion",
+            room            : "androidx.room:room-runtime:$androidXLifecycleVersion",
+            roomRx          : "androidx.room:room-rxjava2:$androidXLifecycleVersion",
+            roomCompiler    : "androidx.room:room-compiler:$androidXLifecycleVersion",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+    ]
+
+    /** Reactive Lib */
+    rxJavaVersion = '2.2.3'
+    rxAndroidVersion = '2.0.1'
+    rxRelayVersion = '2.1.0'
+    reactive = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxRelay  : "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion",
+    ]
+
+    /** OkHttp */
+    okhttpVersion = '4.0.0'
+    http = [
+            okhttp : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            logging: "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            mock   : "com.squareup.okhttp3:mockwebserver:$okhttpVersion",
+    ]
+
+    /** Retrofit and GSON */
+    retrofitVersion = '2.3.0'
+    gsonVersion = '2.8.5'
+    restful = [
+            retrofit    : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitMock: "com.squareup.retrofit2:retrofit-mock:$retrofitVersion",
+            converter   : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            adapter     : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            gson        : "com.google.code.gson:gson:$gsonVersion",
+    ]
+
+    /** Dagger */
+    daggerVersion = '2.22.1'
+    di = [
+            dagger        : "com.google.dagger:dagger:$daggerVersion",
+            compiler      : "com.google.dagger:dagger-compiler:$daggerVersion",
+            android       : "com.google.dagger:dagger-android:$daggerVersion",
+            androidSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+            processor     : "com.google.dagger:dagger-android-processor:$daggerVersion",
+    ]
+
+    /** ButterKnife */
+    butterknifeVersion = '10.1.0'
+    butterknife = [
+            butterknife: "com.jakewharton:butterknife:$butterknifeVersion",
+            compiler   : "com.jakewharton:butterknife-compiler:$butterknifeVersion",
+    ]
+
+    /** Glid */
+    glideVersion = '4.8.0'
+    image = [
+            glide          : "com.github.bumptech.glide:glide:$glideVersion",
+            compiler       : "com.github.bumptech.glide:compiler:$glideVersion",
+            okhttp         : "com.github.bumptech.glide:okhttp3-integration:$glideVersion",
+            transformations: "jp.wasabeef:glide-transformations:4.0.1",
+    ]
+}

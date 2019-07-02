@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.elmenus.task"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+    implementation project(":base")
+
+    implementation androidX.ktx
+    implementation androidX.supportV4
+    implementation androidX.appCompat
+    implementation androidX.material
+    implementation androidX.cardView
+    implementation androidX.constraintLayout
+    implementation androidX.viewModel
+    implementation androidX.extension
+    implementation androidX.room
+    implementation androidX.roomRx
+    kapt androidX.roomCompiler
+
+    implementation di.dagger
+    implementation di.androidSupport
+    implementation di.android
+    kapt di.compiler
+    kapt di.processor
+
+    implementation reactive.rxJava
+    implementation reactive.rxAndroid
+    implementation reactive.rxRelay
+
+    implementation restful.retrofit
+    implementation restful.retrofitMock
+    implementation restful.converter
+    implementation restful.adapter
+    implementation restful.gson
+
+    implementation http.okhttp
+    implementation http.logging
+
+    implementation image.glide
+    implementation image.okhttp
+    implementation image.transformations
+    kapt image.compiler
+
+    /** Test Lib */
+    testImplementation project(":base")
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+    testImplementation 'org.mockito:mockito-inline:2.28.2'
+
+    testImplementation http.mock
+
+    testImplementation di.dagger
+    kaptTest di.compiler
+}
+kapt {
+    correctErrorTypes = true
+    generateStubs = true
+}
