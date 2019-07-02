@@ -84,7 +84,7 @@ class HomeActivity : AppActivity(), TagAdapter.OnClickListener, TagAdapter.OnLoa
             if (throwable is IOException) {
                 SnakBarHelper.retry(itemList, View.OnClickListener { _ ->
                     subscribe(
-                        itemViewModel.getLastOne()?.subscribe(Consumer {
+                        itemViewModel.getByLastTagSelected()?.subscribe(Consumer {
                             itemAdapter.swap(it)
                         }, onLoadingItemsError())
                     )
@@ -126,7 +126,7 @@ class HomeActivity : AppActivity(), TagAdapter.OnClickListener, TagAdapter.OnLoa
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         disposableItems?.dispose()
+        super.onDestroy()
     }
 }

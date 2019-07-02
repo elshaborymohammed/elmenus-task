@@ -47,11 +47,4 @@ class ItemDetailsActivity : AppActivity() {
             )
         }
     }
-
-    override fun onError(): Consumer<Throwable> {
-        return Consumer {
-            it.printStackTrace()
-            super.onError().accept(it)
-        }
-    }
 }

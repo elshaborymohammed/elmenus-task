@@ -17,10 +17,10 @@ class ItemViewModel
     private val observeOn: MainThread
 ) : AppViewModel() {
 
-    private var lastTagName = ""
+    private var lastTagNameSelected = ""
 
     fun get(tagName: String): Single<List<Item>> {
-        lastTagName=tagName
+        lastTagNameSelected = tagName
         return useCase.get(tagName)
             .subscribeOn(subscribeOn.scheduler)
             .observeOn(observeOn.scheduler)
@@ -29,9 +29,9 @@ class ItemViewModel
             .doOnError(loadingOff())
     }
 
-    fun getLastOne(): Single<List<Item>>? {
-        return if (!lastTagName.isNullOrEmpty()) {
-            useCase.get(lastTagName)
+    fun getByLastTagSelected(): Single<List<Item>>? {
+        return if (!lastTagNameSelected.isNullOrEmpty()) {
+            useCase.get(lastTagNameSelected)
                 .subscribeOn(subscribeOn.scheduler)
                 .observeOn(observeOn.scheduler)
                 .doOnSubscribe(loadingOn())
@@ -44,8 +44,5 @@ class ItemViewModel
         return useCase.getOne(name)
             .subscribeOn(subscribeOn.scheduler)
             .observeOn(observeOn.scheduler)
-            .doOnSubscribe(loadingOn())
-            .doOnSuccess(loadingOff())
-            .doOnError(loadingOff())
     }
 }

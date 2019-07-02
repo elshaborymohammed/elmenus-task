@@ -66,6 +66,8 @@ public abstract class AppActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error in server.....", Toast.LENGTH_LONG).show();
             } else if (it instanceof IOException) {
                 Toast.makeText(this, getString(R.string.connection_lost), Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, getString(R.string.unknown_error), Toast.LENGTH_LONG).show();
             }
         };
     }

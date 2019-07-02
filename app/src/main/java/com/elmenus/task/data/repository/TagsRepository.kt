@@ -53,9 +53,9 @@ class TagsRepository @Inject constructor(
     }
 
     private fun onSuccess(): Consumer<List<Tag>> {
-        return Consumer {
+        return Consumer { list ->
             val tags: ArrayList<TagRoom> = ArrayList()
-            it.forEach {
+            list.forEach {
                 tags.add(TagRoom(it.name, it.photo))
             }
 

@@ -25,7 +25,7 @@ class ItemAdapter : AppRecyclerView.Adapter<Item, ItemAdapter.ViewHolder>() {
         override fun bind(position: Int, obj: Item) {
             itemView.name.text = obj.name
             itemView.image?.let {
-                itemView.setOnClickListener { listener?.onClickItem(obj, itemView.image) }
+                itemView.item.setOnClickListener { listener?.onClickItem(obj, itemView.image) }
 
                 GlideApp.with(itemView)
                     .load(obj.photo)
