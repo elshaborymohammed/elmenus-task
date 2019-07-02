@@ -23,6 +23,10 @@ class ItemsRepository @Inject constructor(
     private val workerThread: WorkerThread
 ) : IItemsProtocol {
 
+    /**
+     * get data from database first if it's empty get from remote api
+     * and insert data that loaded from api into database
+     */
     override fun get(tagName: String): Single<List<Item>> {
         return Single.create { emit ->
             try {
@@ -58,6 +62,9 @@ class ItemsRepository @Inject constructor(
         return dao.getOne(name).map { Item(id = it.id, name = it.name, photo = it.photo, description = it.description) }
     }
 
+    /**
+     * get data from remote api
+     */
     private fun fetchFromApi(tagName: String): Single<List<Item>> {
         return api.get(tagName).map { it.data }
     }

@@ -21,6 +21,10 @@ class TagsRepository @Inject constructor(
     private val workerThread: WorkerThread
 ) : ITagsProtocol {
 
+    /**
+     * get data from database first if it's empty get from remote api
+     *  and insert data that loaded from api into database
+     */
     override fun get(): Single<List<Tag>> {
         return Single.create { emit ->
             try {
@@ -52,6 +56,9 @@ class TagsRepository @Inject constructor(
             .doOnSuccess(onSuccess())
     }
 
+    /**
+     * insert data that loaded from api into database
+     */
     private fun onSuccess(): Consumer<List<Tag>> {
         return Consumer { list ->
             val tags: ArrayList<TagRoom> = ArrayList()
@@ -63,6 +70,9 @@ class TagsRepository @Inject constructor(
         }
     }
 
+    /**
+     * get data from remote api
+     */
     private fun fetchFromApi(page: Int): Single<List<Tag>> {
         return api.get(page).map { it.data }
     }

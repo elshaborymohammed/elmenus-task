@@ -4,6 +4,9 @@ package com.elmenus.base.api;
 import androidx.annotation.Nullable;
 import com.google.gson.Gson;
 
+/**
+ * A ApiException handle errors that come from api
+ */
 public class ApiException extends Exception {
     private final int code;
     @Nullable

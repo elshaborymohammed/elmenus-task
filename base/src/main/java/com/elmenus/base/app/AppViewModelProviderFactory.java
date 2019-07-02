@@ -24,6 +24,9 @@ import javax.inject.Provider;
 import javax.inject.Singleton;
 import java.util.Map;
 
+/**
+ * An AppViewModelProviderFactory ensure provide inject into ViewModel
+ */
 @Singleton
 public class AppViewModelProviderFactory implements ViewModelProvider.Factory {
     private final Map<Class<? extends ViewModel>, Provider<ViewModel>> creators;

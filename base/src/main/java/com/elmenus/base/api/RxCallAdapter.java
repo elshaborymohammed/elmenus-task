@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 
 /**
- * A Retrofit adapter that converts the Call into a ApiResponse.
+ * A Retrofit adapter that converts the Call into a Rx.Single.
  *
  * @param <R>
  */
