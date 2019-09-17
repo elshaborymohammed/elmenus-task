@@ -9,7 +9,8 @@
 
         <item name="android:textColorPrimary">@android:color/white</item>
 
-        <item name="android:windowContentTransitions">true</item>
+        <!--<item name="android:windowContentTransitions">true</item>-->
+        <!--<item name="android:windowActivityTransitions">true</item>-->
 
         <!--<item name="android:windowEnterTransition">@transition/move</item>-->
         <!--<item name="android:windowExitTransition">@transition/move</item>-->

@@ -20,7 +20,6 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:scaleType="fitCenter"
-                android:transitionName="imageView"
                 android:layout_margin="@dimen/text_margin"/>
 
         <androidx.appcompat.widget.AppCompatTextView

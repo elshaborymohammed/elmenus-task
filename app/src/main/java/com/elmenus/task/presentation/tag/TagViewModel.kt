@@ -7,9 +7,7 @@ import com.elmenus.task.domain.model.Tag
 import com.elmenus.task.domain.usecase.TagsUseCase
 import io.reactivex.Single
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class TagViewModel
 @Inject constructor(
     private val useCase: TagsUseCase,

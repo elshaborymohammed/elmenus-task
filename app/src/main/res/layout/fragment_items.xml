@@ -25,18 +25,18 @@
                 android:background="@color/cardview_light_background"
                 android:name="com.elmenus.task.presentation.items.ListItemFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 tools:listitem="@layout/card_row_tag"
                 app:layout_scrollFlags="scroll|enterAlways"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/itemList"
-            android:name="com.elmenus.task.presentation.items.ListItemFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/card_row_item"
+            android:layout_height="match_parent"
+            android:minHeight="?actionBarSize"
             android:nestedScrollingEnabled="true"
+            android:background="@color/cardview_dark_background"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
 
     <ProgressBar android:id="@+id/loadingBar"

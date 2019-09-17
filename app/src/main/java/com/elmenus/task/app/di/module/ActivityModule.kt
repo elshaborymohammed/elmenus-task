@@ -1,7 +1,6 @@
 package com.elmenus.task.app.di.module
 
-import com.elmenus.task.presentation.items.ItemDetailsActivity
-import com.elmenus.task.presentation.home.HomeActivity
+import com.elmenus.task.presentation.home.MainActivity
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector
@@ -13,8 +12,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
 
     @ContributesAndroidInjector
-    abstract fun bindListItemActivity(): HomeActivity
-
-    @ContributesAndroidInjector
-    abstract fun bindItemDetailsActivity(): ItemDetailsActivity
+    abstract fun bindMainActivity(): MainActivity
 }

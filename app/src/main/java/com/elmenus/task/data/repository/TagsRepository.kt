@@ -7,6 +7,7 @@ import com.elmenus.task.data.remote.requester.RequesterTagsApi
 import com.elmenus.task.domain.model.Tag
 import com.elmenus.task.domain.protocol.ITagsProtocol
 import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -65,7 +66,6 @@ class TagsRepository @Inject constructor(
             list.forEach {
                 tags.add(TagRoom(it.name, it.photo))
             }
-
             dao.insert(tags.toList())
         }
     }

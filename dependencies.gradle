@@ -13,7 +13,7 @@ ext {
     /** Android Compat */
     androidXCoreVersion = '1.0.0'
     androidXLifecycleVersion = '2.0.0'
-    constraintLayoutVersion = '1.1.2'
+    constraintLayoutVersion = '2.0.0-alpha3'
     androidX = [
             annotation      : "androidx.annotation:annotation:$androidXCoreVersion",
             appCompat       : "androidx.appcompat:appcompat:$androidXCoreVersion",

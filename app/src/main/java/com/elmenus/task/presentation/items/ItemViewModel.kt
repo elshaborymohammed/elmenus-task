@@ -1,5 +1,7 @@
 package com.elmenus.task.presentation.items
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.elmenus.base.app.AppViewModel
 import com.elmenus.base.executor.MainThread
 import com.elmenus.base.executor.WorkerThread
@@ -17,16 +19,24 @@ class ItemViewModel
     private val observeOn: MainThread
 ) : AppViewModel() {
 
+    private var data: MutableLiveData<List<Item>> = MutableLiveData()
     private var lastTagNameSelected = ""
 
-    fun get(tagName: String): Single<List<Item>> {
+    fun get(tagName: String): LiveData<List<Item>> {
         lastTagNameSelected = tagName
-        return useCase.get(tagName)
-            .subscribeOn(subscribeOn.scheduler)
-            .observeOn(observeOn.scheduler)
-            .doOnSubscribe(loadingOn())
-            .doOnSuccess(loadingOff())
-            .doOnError(loadingOff())
+
+        if (data.value.isNullOrEmpty()) {
+            useCase.get(tagName)
+                .subscribeOn(subscribeOn.scheduler)
+                .observeOn(observeOn.scheduler)
+                .doOnSubscribe(loadingOn())
+                .doOnSuccess {
+                    data.value = it
+                    loadingOff()
+                }
+                .doOnError(loadingOff())
+        }
+        return data
     }
 
     fun getByLastTagSelected(): Single<List<Item>>? {
