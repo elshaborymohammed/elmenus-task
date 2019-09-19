@@ -38,8 +38,12 @@ assembleDebug:
     paths:
       - app/build/outputs/
 
-debugTests:
+test:
   stage: test
   script:
     - ./gradlew -Pci --console=plain test
-    # - ./gradlew -Pci --console=plain :app:testDebug
+
+debugTests:
+  stage: test
+  script:
+    - ./gradlew -Pci --console=plain :app:testDebug
